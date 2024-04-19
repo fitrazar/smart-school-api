@@ -10,12 +10,12 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('majors', function (Blueprint $table) {
+        Schema::create('time_attendances', function (Blueprint $table) {
             $table->id();
-            $table->string('acronym');
-            $table->string('name');
-            $table->string('slug');
-            $table->tinyInteger('status')->default(1)->comment('0=disable,1=enable');
+            $table->time('time_in_early');
+            $table->time('time_in_lately');
+            $table->time('time_out_early');
+            $table->time('time_out_lately');
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('majors');
+        Schema::dropIfExists('time_attendances');
     }
 };

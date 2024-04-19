@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Group;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class GroupSeeder extends Seeder
 {
@@ -12,6 +13,26 @@ class GroupSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $data = [
+            [
+                'number' => 1,
+                'status' => 1,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'number' => 2,
+                'status' => 1,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'number' => 3,
+                'status' => 1,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+        ];
+        Group::insert($data);
     }
 }

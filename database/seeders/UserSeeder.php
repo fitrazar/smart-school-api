@@ -24,5 +24,27 @@ class UserSeeder extends Seeder
             'updated_at' => now(),
         ]);
         $admin->assignRole('admin');
+
+        $teacher = User::create([
+            'name' => 'teacher1',
+            'email' => '2000@teacher.com',
+            'password' => Hash::make('password'),
+            'remember_token' => Str::random(10),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        $teacher->assignRole('teacher');
+
+        $student = User::create([
+            'name' => 'student1',
+            'email' => '1000@student.com',
+            'password' => Hash::make('password'),
+            'remember_token' => Str::random(10),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        $student->assignRole('student');
     }
 }

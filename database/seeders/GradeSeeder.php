@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Grade;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class GradeSeeder extends Seeder
 {
@@ -12,6 +13,29 @@ class GradeSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $data = [
+            [
+                'name' => 'X',
+                'slug' => 'x',
+                'status' => 1,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'XI',
+                'slug' => 'xi',
+                'status' => 1,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'XII',
+                'slug' => 'xii',
+                'status' => 1,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+        ];
+        Grade::insert($data);
     }
 }

@@ -10,12 +10,15 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('majors', function (Blueprint $table) {
+        Schema::create('teachers', function (Blueprint $table) {
             $table->id();
-            $table->string('acronym');
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
+            $table->string('photo')->nullable();
+            $table->string('number')->unique();
             $table->string('name');
-            $table->string('slug');
-            $table->tinyInteger('status')->default(1)->comment('0=disable,1=enable');
+            $table->string('gender');
+            $table->string('phone')->nullable();
+            $table->text('address')->nullable();
             $table->timestamps();
         });
     }
@@ -25,6 +28,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('majors');
+        Schema::dropIfExists('teachers');
     }
 };
