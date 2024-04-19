@@ -62,7 +62,7 @@ class AuthController extends BaseController
 
     public function me()
     {
-        $user = Auth::user();
+        $user = Auth::user()->load('student', 'teacher');
         $roles = $user->getRoleNames();
         $data['user'] = $user;
         $data['roles'] = $roles;
